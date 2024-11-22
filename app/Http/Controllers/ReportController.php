@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Resources\ReportResource;
 use Illuminate\Http\Request;
 use App\Models\Report;
 
@@ -10,7 +10,7 @@ class ReportController extends Controller
     public function index()
     {
         $reports = Report::all(); // Mengambil semua data dari tabel 'reports'
-        return response()->json($reports, 200);
+        return ReportResource::collection($reports);
     }
 
     public function store(Request $request)

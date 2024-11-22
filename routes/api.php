@@ -9,6 +9,7 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 Route::get('/testimoni', [TestimoniController::class, 'index'])->name('testimoni.index');
+
 Route::get('/testimoni/{id}', [TestimoniController::class, 'testimoniById'])->name('testimoni.Id');
 Route::post('/posttestimoni', [TestimoniController::class, 'store'])->name('testimoni.store');
 Route::put('/updatetestimoni/{id}', [TestimoniController::class, 'update'])->name('testimoni.update');
