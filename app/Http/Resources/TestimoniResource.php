@@ -21,6 +21,7 @@ class TestimoniResource extends JsonResource
             'angkatan' => $this->angkatan,
             'judul_utama' => $this->judul_utama,
             'link_video' => $this->link_video,
+            'user_id' => $this->user_id,
         ];
     }
 }

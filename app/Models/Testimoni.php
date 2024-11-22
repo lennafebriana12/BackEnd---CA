@@ -18,10 +18,12 @@ class Testimoni extends Model
     protected $table = 'testimoni';
 
     protected $fillable = [
+        'id',
         'pekerjaan',
         'program_studi',
         'angkatan',
         'judul_utama',
         'link_video',
+        'user_id'
     ];
 }
