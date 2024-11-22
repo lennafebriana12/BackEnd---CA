@@ -8,14 +8,27 @@ use Illuminate\Http\Request;
 
 class TestimoniController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $testimoni = Testimoni::all();
-
-        // Berguna jika sedang testing api dengan postman maka ini yang berjalan dan tampil di postman
-        return TestimoniResource::collection($testimoni); // Mengembalikan data testimoni dalam bentuk resource API.
-
-        // return view('pages.frontsite.testimoni.index', compact('testimoni'));
+        // Ambil parameter 'search' dari query string
+        $search = $request->get('search');
+    
+        if ($search) {
+            // Jika ada parameter pencarian, filter data
+            $testimoni = Testimoni::where(function ($q) use ($search) {
+                $q->where('pekerjaan', 'like', "%{$search}%")
+                  ->orWhere('program_studi', 'like', "%{$search}%")
+                  ->orWhere('angkatan', 'like', "%{$search}%")
+                  ->orWhere('judul_utama', 'like', "%{$search}%")
+                  ->orWhere('link_video', 'like', "%{$search}%");
+            })->get();
+        } else {
+            // Jika tidak ada parameter pencarian, ambil semua data
+            $testimoni = Testimoni::all();
+        }
+    
+        // Mengembalikan data dalam bentuk resource API
+        return TestimoniResource::collection($testimoni);
     }
 
     public function store(Request $request)
