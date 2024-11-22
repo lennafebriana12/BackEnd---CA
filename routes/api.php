@@ -20,4 +20,4 @@ use App\Http\Controllers\ReportController;
 Route::get('/reports', [ReportController::class, 'index'])->name('report.index');
 Route::post('/reports', [ReportController::class, 'store'])->name('report.store');
 Route::get('/reports/{id}', [ReportController::class, 'show'])->name('report.show');
-Route::delete('/reports/{id}', [ReportController::class, 'destroy'])->name('report.destroy');
+Route::delete('/deletereports/{id}', [ReportController::class, 'destroy'])->name('report.destroy');

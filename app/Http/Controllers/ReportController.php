@@ -15,17 +15,11 @@ class ReportController extends Controller
 
     public function store(Request $request)
     {
-        // Validasi data yang diterima
-        $validatedData = $request->validate([
-            'judul_utama' => 'required|string',
-            'nama' => 'required|string|max:255',
-            'alasan' => 'required|string',
-        ]);
+        $post = Report::create($request->all());
 
-        // Simpan data ke database
-        $report = Report::create($validatedData);
-
-        return response()->json($report, 201);
+        // Berguna jika sedang testing api dengan postman maka ini yang berjalan dan tampil di postman
+        return new ReportResource($post); // Mengembalikan data testimoni dalam bentuk resource API.
+        
     }
 
     public function show($id)
@@ -33,25 +27,20 @@ class ReportController extends Controller
         $report = Report::find($id);
 
         if (!$report) {
-            return response()->json(['message' => 'Report not found'], 404);
+            return response()->json(['error' => '$report not found'], 404);
         }
 
-        return response()->json($report, 200);
+        return response()->json($report);
+
     }
 
     public function destroy($id)
     {
-        $report = Report::find($id);
+        $report = Report::findOrFail($id);
 
-        if (!$report) {
-            return response()->json(['message' => 'Report not found'], 404);
-        }
+        $report -> delete();
 
-        $report->delete();
+        return new ReportResource($report);
 
-        return response()->json(['message' => 'Report deleted successfully'], 200);
     }
-
-
-
 }
