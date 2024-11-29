@@ -23,3 +23,8 @@ Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
 Route::post('/reports', [ReportController::class, 'store'])->name('report.store');
 Route::get('/reports/{id}', [ReportController::class, 'show'])->name('report.show');
 Route::delete('/deletereports/{id}', [ReportController::class, 'destroy'])->name('report.destroy');
+
+
+use App\Http\Controllers\CategoryController;
+
+Route::get('/categories', [CategoryController::class, 'index'])->name('category.index');

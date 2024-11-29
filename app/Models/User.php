@@ -27,6 +27,17 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'type',
+        'about',
+        'contact',
+        'job', 
+        'photo', 
+        'status',
+        'birth_of_date',
+    ];
+
+    protected $dates = [
+        'birth_date',
     ];
 
     /**

@@ -7,9 +7,24 @@ use App\Models\Report;
 
 class ReportController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $reports = Report::all(); // Mengambil semua data dari tabel 'reports'
+
+          // Ambil parameter 'search' dari query string
+          $search = $request->get('search');
+    
+          if ($search) {
+              // Jika ada parameter pencarian, filter data
+              $reports = Report::where(function ($q) use ($search) {
+                  $q->where('alasan', 'like', "%{$search}%")
+                    ->orWhere('waktu', 'like', "%{$search}%")
+                    ->orWhere('nama', 'like', "%{$search}%")
+                    ->orWhere('judul_utama', 'like', "%{$search}%");
+              })->get();
+          } else {
+              // Jika tidak ada parameter pencarian, ambil semua data
+              $reports = Report::all();
+          }
         return ReportResource::collection($reports);
     }
 
