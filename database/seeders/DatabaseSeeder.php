@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+//use Illuminate\Support\Facedes\Hash;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder

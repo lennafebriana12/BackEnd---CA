@@ -28,3 +28,11 @@ Route::delete('/deletereports/{id}', [ReportController::class, 'destroy'])->name
 use App\Http\Controllers\CategoryController;
 
 Route::get('/categories', [CategoryController::class, 'index'])->name('category.index');
+
+
+Route::apiResource('testimoni', TestimoniController::class);
+
+
+// Route::get('/profil/edit', [ProfilController::class, 'edit'])->name('editprofil')->middleware('auth');
+// // Route to handle form submission and update profile
+// Route::put('/profil/update', [ProfilController::class, 'update'])->name('profil.update')->middleware('auth');
