@@ -8,7 +8,7 @@ use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class TestimoniResource extends JsonResource
 {
-    public function toArray($request)
+    public function toArray(request $request): array
     {
         return [
             'id' => $this->id,

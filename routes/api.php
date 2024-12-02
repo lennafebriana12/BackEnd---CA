@@ -30,7 +30,7 @@ use App\Http\Controllers\CategoryController;
 Route::get('/categories', [CategoryController::class, 'index'])->name('category.index');
 
 
-Route::apiResource('testimoni', TestimoniController::class);
+// Route::apiResource('testimoni', TestimoniController::class);
 
 
 // Route::get('/profil/edit', [ProfilController::class, 'edit'])->name('editprofil')->middleware('auth');
