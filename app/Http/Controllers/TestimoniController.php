@@ -32,8 +32,12 @@ class TestimoniController extends Controller
 
     public function store(Request $request)
     {
-        $post = Testimoni::create($request->all());
-
+        // Cek jika user_id tidak null
+        if ($request->get('user_id') !== null) {
+            $post = Testimoni::create($request->all());
+        } else {
+            return response()->json(['error' => 'User ID is required'], 400);
+        }
         // Berguna jika sedang testing api dengan postman maka ini yang berjalan dan tampil di postman
         return new TestimoniResource($post); // Mengembalikan data testimoni dalam bentuk resource API.
         // return redirect()->back()->with('success', 'Testimoni berhasil ditambahkan!');
