@@ -36,7 +36,7 @@ class TestimoniController extends Controller
 
         // Berguna jika sedang testing api dengan postman maka ini yang berjalan dan tampil di postman
         return new TestimoniResource($post); // Mengembalikan data testimoni dalam bentuk resource API.
-   // return redirect()->back()->with('success', 'Testimoni berhasil ditambahkan!');
+        // return redirect()->back()->with('success', 'Testimoni berhasil ditambahkan!');
     }
 
     public function update(Request $request, $id)
@@ -71,7 +71,7 @@ class TestimoniController extends Controller
         $testimoni -> delete();
 
         // Berguna jika sedang testing api dengan postman maka ini yang berjalan dan tampil di postman
-        return new TestimoniResource($testimoni); // Mengembalikan data testimoni dalam bentuk resource API.
+        // return new TestimoniResource($testimoni); // Mengembalikan data testimoni dalam bentuk resource API.
 
     }
 
