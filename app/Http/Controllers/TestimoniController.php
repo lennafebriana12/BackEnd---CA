@@ -75,7 +75,7 @@ class TestimoniController extends Controller
         $testimoni -> delete();
 
         // Berguna jika sedang testing api dengan postman maka ini yang berjalan dan tampil di postman
-        return new TestimoniResource($testimoni); // Mengembalikan data testimoni dalam bentuk resource API.
+        // return new TestimoniResource($testimoni); // Mengembalikan data testimoni dalam bentuk resource API.
 
     }
 

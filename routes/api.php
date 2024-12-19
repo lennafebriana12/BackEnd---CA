@@ -26,8 +26,19 @@ Route::delete('/deletereports/{id}', [ReportController::class, 'destroy'])->name
 
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\SystemController;
+use App\Http\Controllers\System2Controller;
+use App\Http\Controllers\System3Controller;
+use App\Http\Controllers\System4Controller;
+use App\Http\Controllers\System5Controller;
 
 Route::get('/categories', [CategoryController::class, 'index'])->name('category.index');
+Route::get('/system', [SystemController::class, 'system'])->name('system.index');
+Route::get('/system2', [System2Controller::class, 'system'])->name('system2.index');
+Route::get('/system3', [System3Controller::class, 'system'])->name('system3.index');
+Route::get('/system4', [System4Controller::class, 'system'])->name('system4.index');
+Route::get('/system5', [System5Controller::class, 'system'])->name('system5.index');
+
 
 
 // Route::apiResource('testimoni', TestimoniController::class);
