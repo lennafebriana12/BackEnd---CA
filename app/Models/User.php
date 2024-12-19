@@ -34,6 +34,7 @@ class User extends Authenticatable
         'photo', 
         'status',
         'birth_of_date',
+        'tempatKerja',
     ];
 
     protected $dates = [
