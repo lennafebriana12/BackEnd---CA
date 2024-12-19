@@ -26,6 +26,7 @@ class SystemResource extends JsonResource
             'photo' => $this->photo, 
             'status' => $this->status,
             'birth_of_date' => $this->birth_of_date,
+            'tempatKerja' => $this->tempatKerja,
         ];
     }
 }

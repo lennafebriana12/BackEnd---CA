@@ -12,7 +12,7 @@ class System4Controller extends Controller
     public function system(Request $request)
     {
         // Ambil data alumni dengan filter pekerjaan System Analyst
-        $users = User::where('job', 'Analis data')
+        $users = User::where('job', 'Data Analis')
             ->when($request->search, function ($query) use ($request) {
                 $query->where('name', 'like', '%' . $request->search . '%');
             })
